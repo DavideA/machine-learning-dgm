@@ -1,15 +1,15 @@
 method: 'DGMw'
 dataset: 'svhn'
-log_dir: './logs/DGMw/svhn/'
+log_dir: './logs/DGMw2/svhn/'
 dataroot: 'dat/SVHN_'
-outf: 'outputs/DGMw'
-outf_models: 'outputs/DGMw/models'
+outf: 'outputs/DGMw2'
+outf_models: 'outputs/DGMw2/models'
 batchSize: 64
 imageSize: 32
 manualSeed: 100
 nz: 128 # size of the latent z vector
-ngf: 6
-ndf: 32
+ngf: 128
+ndf: 128
 niter: 151
 lr_D: 0.0005
 lr_G: 0.0005

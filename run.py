@@ -31,24 +31,27 @@ ts = time.time()
 parser = argparse.ArgumentParser(description='xxx')
 parser.add_argument('--dataset', default='svhn', type=str, required=False,
                     choices=['mnist', 'svhn'], help='Dataset name')
-parser.add_argument('--method', default='DGMw', type=str, required=False,
-                    choices=['DGMa', 'DGMw'], help='Method to run.')
+parser.add_argument('--method', type=str, required=True,
+                    choices=['dgmw1', 'dgmw2'], help='Method to run.')
 # parser.add_argument('--cfg_file',default=None,type=str,required=False, help='Path to the configuration file')
 cfg = parser.parse_args()
-if cfg.method == "DGMw":
-    if cfg.dataset == "mnist":
-        cfg_file = 'cfg/cfg_mnist_dgmw.yml'
-        cfg_from_file(cfg_file)
-    elif cfg.dataset == "svhn":
-        cfg_file = 'cfg/cfg_svhn_dgmw.yml'
-        cfg_from_file(cfg_file)
-elif cfg.method == "DGMa":
-    if cfg.dataset == "mnist":
-        cfg_file = 'cfg/cfg_mnist_dgma.yml'
-        cfg_from_file(cfg_file)
-    elif cfg.dataset == "svhn":
-        cfg_file = 'cfg/cfg_svhn_dgma.yml'
-        cfg_from_file(cfg_file)
+# if cfg.method == "DGMw":
+#     if cfg.dataset == "mnist":
+#         cfg_file = 'cfg/cfg_mnist_dgmw.yml'
+#         cfg_from_file(cfg_file)
+#     elif cfg.dataset == "svhn":
+#         cfg_file = 'cfg/cfg_svhn_dgmw.yml'
+#         cfg_from_file(cfg_file)
+# elif cfg.method == "DGMa":
+#     raise NotImplementedError
+    # if cfg.dataset == "mnist":
+    #     cfg_file = 'cfg/cfg_mnist_dgma.yml'
+    #     cfg_from_file(cfg_file)
+    # elif cfg.dataset == "svhn":
+    #     cfg_file = 'cfg/cfg_svhn_dgma.yml'
+    #     cfg_from_file(cfg_file)
+cfg_file = 'cfg/cfg_{}_{}.yml'.format(cfg.dataset, cfg.method)
+cfg_from_file(cfg_file)
 print(opt)
 
 #######################################################################################################################
